@@ -1,0 +1,40 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment folders
+venv/
+.env/
+*.env
+tester/
+
+# FastAPI-related
+*.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest
+.cache/
+
+# Coverage reports
+*.coverage
+*.coverage.*
+*.hypothesis/
+
+# Docker
+docker-compose.override.yml
+docker-compose.yml
+
+# Logs
+*.log
+
+# Misc
+*.DS_Store  # macOS file
+Thumbs.db   # Windows file
