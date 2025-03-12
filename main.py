@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends
 from routes import test, traffic, cve_db, firewall, detection
 from sqlalchemy import inspect
 from sqlalchemy.orm import Session
-from models import FirewallRule
+from models import FirewallRule, CVE
 
 #from models import firewall
 #from models import FireWallRule
