@@ -1,8 +1,10 @@
-#from database import engine, Base, SessionLocal
+from database import engine, Base, SessionLocal
 from fastapi import FastAPI, Depends
 from routes import test, traffic, cve_db, firewall, detection
 from sqlalchemy import inspect
 from sqlalchemy.orm import Session
+from models import FirewallRule
+
 #from models import firewall
 #from models import FireWallRule
 
@@ -50,6 +52,10 @@ from sqlalchemy.orm import Session
 #         return {"error": str(e)}
     
 app=FastAPI(title="Minimal APP")
+
+@app.on_event("startup")
+def startup():
+    Base.metadata.create_all(bind=engine)
 
 app.include_router(test.router, prefix="/api")
 app.include_router(traffic.router, prefix="/api/traffic")
