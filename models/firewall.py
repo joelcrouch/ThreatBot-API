@@ -1,6 +1,7 @@
 from database import Base
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import relationship
 
 class FirewallRule(Base):
     __tablename__ = "firewall_rules"
@@ -8,6 +9,9 @@ class FirewallRule(Base):
     id = Column(Integer, primary_key=True, index=True)
     rule_name=Column(String, index=True)
     action=Column(String)
+
+    traffic_logs = relationship("TrafficLog", back_populates="firewall_rule")
+
 
     def __repr__(self):
          return f"<FirewallRule(id={self.id}, rule_name={self.rule_name}, action={self.action})>"
